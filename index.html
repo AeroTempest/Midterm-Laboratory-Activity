@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume/CV - Friench Ocampo</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+    <script src="styles.css"></script>
+</head>
+<body>
+    <div class="container" id="app">
+        <h1>Friench Ocampo</h1>
+        <div class="section">
+            <h2>Personal Information</h2>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Phone:</strong> {{ phone }}</p>
+            <p><strong>LinkedIn:</strong> <a :href="linkedin">{{ linkedin }}</a></p>
+            <p><strong>GitHub:</strong> <a :href="github">{{ github }}</a></p>
+        </div>
+
+        <div class="section">
+            <h2>Experience</h2>
+            <ul>
+                <li v-for="job in experience">
+                    <strong>{{ job.title }}</strong> at {{ job.company }} ({{ job.startDate }} - {{ job.endDate }})
+                    <p>{{ job.description }}</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Education</h2>
+            <ul>
+                <li v-for="edu in education">
+                    <strong>{{ edu.degree }}</strong> in {{ edu.field }} from {{ edu.institution }} ({{ edu.year }})
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+                <li v-for="skill in skills">{{ skill }}</li>
+            </ul>
+        </div>
+
+        <button class="button" @click="editProfile">Edit Profile</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
